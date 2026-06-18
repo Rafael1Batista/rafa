@@ -4,8 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto Agrinho - O Bem do Campo</title>
-    <link rel="stylesheet" href="style.css"> </head>
+    <link class="css-style" rel="stylesheet" href="style.css"> 
+</head>
 <body>
+
+    <div class="acessibilidade" aria-label="Controles de Acessibilidade">
+        <button onclick="alterarFonte(1)" aria-label="Aumentar tamanho do texto">A+ Fonte</button>
+        <button onclick="alterarFonte(-1)" aria-label="Diminuir tamanho do texto">A- Fonte</button>
+        <button onclick="toggleContraste()" aria-label="Alternar alto contraste">Contraste</button>
+    </div>
 
     <header>
         <div class="logo">
@@ -23,67 +30,80 @@
         </nav>
     </header>
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h2>A Força e a Beleza da Vida no Campo</h2>
-            <p>Descubra como a agricultura sustentável e a preservação ambiental transformam a nossa sociedade e garantem o amanhã.</p>
-            <a href="#bem-do-campo" class="btn">Saiba Mais</a>
-        </div>
-    </section>
-
-    <section id="sobre" class="container">
-        <h2>Sobre o Agrinho</h2>
-        <div class="grid-2">
-            <div class="texto">
-                <p>O Programa Agrinho é uma iniciativa que leva educação, cidadania e consciência ambiental para as escolas. Nosso objetivo é conectar as novas gerações à realidade do campo, mostrando a importância do produtor rural e o respeito à natureza.</p>
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h2>A Força e a Beleza da Vida no Campo</h2>
+                <p>Descubra como a agricultura sustentável e a preservação ambiental transformam a nossa sociedade e garantem o amanhã.</p>
+                <a href="#bem-do-campo" class="btn">Saiba Mais</a>
             </div>
-            <div class="imagem-placeholder">
-                <div class="box-foto">[Imagem: Atividades do Agrinho na Escola]</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="bem-do-campo" class="bg-light">
-        <div class="container">
-            <h2>O Bem do Campo: O que ele nos dá?</h2>
-            <p class="subtitulo">Muito além dos alimentos, o campo é a base da nossa sobrevivência e bem-estar.</p>
-            
-            <div class="grid-3">
-                <div class="card">
-                    <h3>Alimentação Saudável</h3>
-                    <p>Frutas, verduras, grãos e leite chegam frescos à mesa das cidades graças ao trabalho árduo e dedicado do homem do campo.</p>
+        <section id="sobre" class="container">
+            <h2>Sobre o Agrinho</h2>
+            <div class="grid-2">
+                <div class="texto">
+                    <p>O Programa Agrinho é uma iniciativa que leva educação, cidadania e consciência ambiental para as escolas. Nosso objetivo é conectar as novas gerações à realidade do campo, mostrando a importância do produtor rural e o respeito à natureza.</p>
                 </div>
-                <div class="card">
-                    <h3>Preservação Ambiental</h3>
-                    <p>O campo cuida das nossas nascentes, das florestas e da biodiversidade por meio de práticas agrícolas conscientes e manejo correto do solo.</p>
-                </div>
-                <div class="card">
-                    <h3>Economia e Inovação</h3>
-                    <p>A tecnologia no campo impulsiona o desenvolvimento do país, unindo tradição e modernidade para produzir mais e melhor, respeitando o meio ambiente.</p>
+                <div class="imagem-placeholder">
+                    <div class="box-foto">[Imagem: Atividades do Agrinho na Escola]</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="acoes" class="container">
-        <h2>Atitudes que Transformam</h2>
-        <p>Como cada um de nós, no campo ou na cidade, pode fazer a sua parte:</p>
-        <ul class="lista-sustentavel">
-            <li><strong>Consumo Consciente:</strong> Evitar o desperdício de alimentos e valorizar os produtores locais.</li>
-            <li><strong>Proteção da Água:</strong> Cuidar dos rios e economizar a água no dia a dia.</li>
-            <li><strong>Logística Reversa:</strong> Descarte correto de embalagens e defensivos agrícolas.</li>
-            <li><strong>Educação Ambiental:</strong> Compartilhar o conhecimento para que mais pessoas valorizem o meio rural.</li>
-        </ul>
-    </section>
+        <section id="bem-do-campo" class="bg-light">
+            <div class="container">
+                <h2>O Bem do Campo: O que ele nos dá?</h2>
+                <p class="subtitulo">Muito além dos alimentos, o campo é a base da nossa sobrevivência e bem-estar.</p>
+                
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>Alimentação Saudável</h3>
+                        <p>Frutas, verduras, grãos e leite chegam frescos à mesa das cidades graças ao trabalho árduo e dedicado do homem do campo.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Preservação Ambiental</h3>
+                        <p>O campo cuida das nossas nascentes, das florestas e da biodiversidade por meio de práticas agrícolas conscientes e manejo correto do solo.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Economia e Inovação</h3>
+                        <p>A tecnologia no campo impulsiona o desenvolvimento do país, unindo tradição e modernidade para produzir mais e melhor, respeitando o meio ambiente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="acoes" class="container">
+            <h2>Atitudes que Transformam</h2>
+            <p>Como cada um de nós, no campo ou na cidade, pode fazer a sua parte:</p>
+            <ul class="lista-sustentavel">
+                <li><strong>Consumo Consciente:</strong> Evitar o desperdício de alimentos e valorizar os produtores locais.</li>
+                <li><strong>Proteção da Água:</strong> Cuidar dos rios e economizar a água no dia a dia.</li>
+                <li><strong>Logística Reversa:</strong> Descarte correto de embalagens e defensivos agrícolas.</li>
+                <li><strong>Educação Ambiental:</strong> Compartilhar o conhecimento para que mais pessoas valorizem o meio rural.</li>
+            </ul>
+        </section>
+    </main>
 
     <footer>
         <p>&copy; 2026 Projeto Agrinho - Desenvolvido com foco no Bem do Campo.</p>
         <p>Educação que transforma a relação entre o campo e a cidade.</p>
     </footer>
 
+    <script>
+        function alterarFonte(direcao) {
+            const html = document.documentElement;
+            let tamanhoAtual = parseFloat(window.getComputedStyle(html).fontSize);
+            let novoTamanho = tamanhoAtual + (direcao * 2);
+            
+            if (novoTamanho >= 12 && novoTamanho <= 24) {
+                html.style.fontSize = novoTamanho + 'px';
+            }
+        }
+
+        function toggleContraste() {
+            document.body.classList.toggle('alto-contraste');
+        }
+    </script>
 </body>
-</html><div class="acessibilidade">
-    <button onclick="aumentarFonte()">A+ Fonte</button>
-    <button onclick="diminuirFonte()">A- Fonte</button>
-    <button onclick="toggleContraste()">Contraste</button>
-</div>
+</html>
