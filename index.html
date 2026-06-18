@@ -3,15 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Agrinho - O Bem do Campo</title>
-    <link class="css-style" rel="stylesheet" href="style.css"> 
+    <title>Portal Completo Projeto Agrinho - O Bem do Campo</title>
+    
+    <style>
+        /* Estilização Geral Base (Layout limpo e moderno) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #2e7d32;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo h1 { margin: 0; font-size: 2.5rem; }
+        .logo p { margin: 5px 0 0; font-style: italic; opacity: 0.9; }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        nav a:hover { background-color: #1b5e20; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .bg-light { background-color: #f1f8e9; }
+        
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 20px; }
+        
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 5px solid #4caf50;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #ff9800;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+        .img-responsiva {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* BARRA DE ACESSIBILIDADE FIXA NO TOPO */
+        .acessibilidade {
+            background-color: #222;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .acessibilidade button {
+            background-color: #fff;
+            color: #222;
+            border: 2px solid #fff;
+            padding: 6px 14px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .acessibilidade button:hover { background-color: #e0e0e0; }
+
+        /* ======================================================= */
+        /* SOLUÇÃO COMPLETA CONTRA ERROS DE CONTRASTE (NADA SUMIRÁ) */
+        /* ======================================================= */
+        html.alto-contraste, 
+        html.alto-contraste body, 
+        html.alto-contraste main,
+        html.alto-contraste header, 
+        html.alto-contraste footer, 
+        html.alto-contraste section, 
+        html.alto-contraste div, 
+        html.alto-contraste article,
+        html.alto-contraste .bg-light,
+        html.alto-contraste .card,
+        html.alto-contraste .card-quiz {
+            background-color: #000000 !important;
+            color: #FFFFFF !important;
+            background-image: none !important;
+            box-shadow: none !important;
+            border-color: #ffffff !important;
+        }
+
+        /* Garante legibilidade máxima para elementos em destaque */
+        html.alto-contraste h1, 
+        html.alto-contraste h2, 
+        html.alto-contraste h3, 
+        html.alto-contraste h4,
+        html.alto-contraste strong, 
+        html.alto-contraste p,
+        html.alto-contraste li,
+        html.alto-contraste label {
+            color: #FFFFFF !important;
+        }
+
+        html.alto-contraste a {
+            color: #FFFF00 !important; /* Links amarelos no alto contraste */
+            text-decoration: underline !important;
+        }
+
+        html.alto-contraste button, 
+        html.alto-contraste .btn {
+            background-color: #FFFF00 !important;
+            color: #000000 !important;
+            border: 2px solid #FFFF00 !important;
+        }
+        
+        html.alto-contraste img {
+            filter: grayscale(100%) contrast(140%);
+        }
+    </style>
 </head>
 <body>
 
     <div class="acessibilidade" aria-label="Controles de Acessibilidade">
-        <button onclick="alterarFonte(1)" aria-label="Aumentar tamanho do texto">A+ Fonte</button>
-        <button onclick="alterarFonte(-1)" aria-label="Diminuir tamanho do texto">A- Fonte</button>
-        <button onclick="toggleContraste()" aria-label="Alternar alto contraste">Contraste</button>
+        <button onclick="alterarFonte(1)" aria-label="Aumentar tamanho do texto">A+ Aumentar Fonte</button>
+        <button onclick="alterarFonte(-1)" aria-label="Diminuir tamanho do texto">A- Diminuir Fonte</button>
+        <button onclick="toggleContraste()" aria-label="Alternar alto contraste">🌓 Alternar Contraste</button>
     </div>
 
     <header>
@@ -24,7 +180,10 @@
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#sobre">O Agrinho</a></li>
                 <li><a href="#bem-do-campo">O Bem do Campo</a></li>
+                <li><a href="#tecnologia">Tecnologia Rural</a></li>
+                <li><a href="#ods">Metas Globais (ODS)</a></li>
                 <li><a href="#acoes">Ações Sustentáveis</a></li>
+                <li><a href="#quiz-educativo">Espaço Aluno</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
@@ -34,19 +193,20 @@
         <section id="inicio" class="hero">
             <div class="hero-content">
                 <h2>A Força e a Beleza da Vida no Campo</h2>
-                <p>Descubra como a agricultura sustentável e a preservação ambiental transformam a nossa sociedade e garantem o amanhã.</p>
-                <a href="#bem-do-campo" class="btn">Saiba Mais</a>
+                <p>Descubra como a agricultura sustentável e a preservação ambiental transformam a nossa sociedade, fortalecem a economia e garantem o amanhã das próximas gerações.</p>
+                <a href="#sobre" class="btn">Conhecer o Projeto</a>
             </div>
         </section>
 
         <section id="sobre" class="container">
-            <h2>Sobre o Agrinho</h2>
+            <h2>Sobre o Programa Agrinho</h2>
             <div class="grid-2">
                 <div class="texto">
-                    <p>O Programa Agrinho é uma iniciativa que leva educação, cidadania e consciência ambiental para as escolas. Nosso objetivo é conectar as novas gerações à realidade do campo, mostrando a importância do produtor rural e o respeito à natureza.</p>
+                    <p>O <strong>Programa Agrinho</strong> é a principal iniciativa de responsabilidade social do Sistema FAEP/SENAR-PR. Desenvolvido há mais de duas décadas, o projeto atua como uma ferramenta pedagógica fantástica que integra temas de relevância nacional — como ética, cidadania, saúde e meio ambiente — com foco especial nas realidades do campo.</p>
+                    <p>Através do trabalho conjunto de professores e alunos da educação infantil e do ensino fundamental, o projeto instiga a pesquisa científica e o desenvolvimento de soluções reais e sustentáveis, premiando os projetos mais inovadores e gerando uma enorme corrente de transformação cultural.</p>
                 </div>
-                <div class="imagem-placeholder">
-                    <div class="box-foto">[Imagem: Atividades do Agrinho na Escola]</div>
+                <div class="imagem-container">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80" alt="Crianças felizes na escola estudando com livros abertos" class="img-responsiva">
                 </div>
             </div>
         </section>
@@ -54,43 +214,116 @@
         <section id="bem-do-campo" class="bg-light">
             <div class="container">
                 <h2>O Bem do Campo: O que ele nos dá?</h2>
-                <p class="subtitulo">Muito além dos alimentos, o campo é a base da nossa sobrevivência e bem-estar.</p>
+                <p>Muito além dos alimentos essenciais, o setor rural é a mola propulsora do bem-estar social, da inovação industrial e do equilíbrio biológico do nosso país.</p>
                 
                 <div class="grid-3">
                     <div class="card">
-                        <h3>Alimentação Saudável</h3>
-                        <p>Frutas, verduras, grãos e leite chegam frescos à mesa das cidades graças ao trabalho árduo e dedicado do homem do campo.</p>
+                        <h3>Alimentação e Nutrição</h3>
+                        <p>O campo abastece as cidades diariamente com frutas, hortaliças, grãos e proteínas de altíssima qualidade. A agricultura moderna foca em práticas integradas que diminuem o impacto ambiental e aumentam o valor nutricional.</p>
                     </div>
                     <div class="card">
-                        <h3>Preservação Ambiental</h3>
-                        <p>O campo cuida das nossas nascentes, das florestas e da biodiversidade por meio de práticas agrícolas conscientes e manejo correto do solo.</p>
+                        <h3>Preservação dos Recursos</h3>
+                        <p>Os produtores rurais conscientes agem como verdadeiros guardiões ecológicos, sendo responsáveis pela manutenção de matas ciliares, conservação de nascentes d'água essenciais e proteção de corredores de biodiversidade.</p>
                     </div>
                     <div class="card">
-                        <h3>Economia e Inovação</h3>
-                        <p>A tecnologia no campo impulsiona o desenvolvimento do país, unindo tradição e modernidade para produzir mais e melhor, respeitando o meio ambiente.</p>
+                        <h3>Combustíveis Renováveis</h3>
+                        <p>O setor campestre lidera a transição energética do país por meio da produção em larga escala de biocombustíveis como o etanol e o biodiesel, reduzindo drasticamente as taxas de emissões de gases poluentes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologia" class="container">
+            <h2>Tecnologia e Agricultura Digital</h2>
+            <p>A rotina rural passou por uma revolução tecnológica impressionante nas últimas décadas. A chamada Agricultura 4.0 une o conhecimento ancestral com as mídias e ferramentas tecnológicas mais refinadas do mercado.</p>
+            
+            <div class="grid-2">
+                <div class="imagem-container">
+                    <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?auto=format&fit=crop&w=600&q=80" alt="Plantação verde com modernos bicos de irrigação automatizados" class="img-responsiva">
+                </div>
+                <div class="texto">
+                    <h3>Inovações de Precisão:</h3>
+                    <ul>
+                        <li><strong>Drones de Monitoramento:</strong> Capazes de identificar falhas no plantio, focos de pragas e estresse hídrico com precisão de centímetros.</li>
+                        <li><strong>Maquinários Inteligentes:</strong> Tratores e colheitadeiras guiados por satélite (GPS) reduzem as perdas de sementes e otimizam o uso de combustíveis.</li>
+                        <li><strong>Sensores e IoT (Internet das Coisas):</strong> Dispositivos inseridos na terra enviam relatórios em tempo real sobre a umidade e os nutrientes do solo.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="ods" class="bg-light">
+            <div class="container">
+                <h2>O Campo e os Objetivos de Desenvolvimento Sustentável (ODS)</h2>
+                <p>As práticas rurais modernas estão alinhadas com as metas mundiais da ONU para garantir o futuro do planeta. Veja como o bem do campo impacta as metas globais:</p>
+                <div class="grid-3">
+                    <div class="card" style="border-top-color: #e53935;">
+                        <h3>ODS 2: Fome Zero</h3>
+                        <p>Produzir alimentos em abundância de forma eficiente, mitigando a escassez alimentar global através do uso inteligente de biotecnologias.</p>
+                    </div>
+                    <div class="card" style="border-top-color: #00acc1;">
+                        <h3>ODS 6: Água Potável</h3>
+                        <p>Proteger e restaurar ecossistemas relacionados com a água, incluindo montanhas, florestas, rios e aquíferos nas propriedades rurais.</p>
+                    </div>
+                    <div class="card" style="border-top-color: #43a047;">
+                        <h3>ODS 15: Vida Terrestre</h3>
+                        <p>Combater a desertificação, deter a degradação da terra e frear de forma definitiva a perda de biodiversidade através do manejo correto.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="acoes" class="container">
-            <h2>Atitudes que Transformam</h2>
-            <p>Como cada um de nós, no campo ou na cidade, pode fazer a sua parte:</p>
-            <ul class="lista-sustentavel">
-                <li><strong>Consumo Consciente:</strong> Evitar o desperdício de alimentos e valorizar os produtores locais.</li>
-                <li><strong>Proteção da Água:</strong> Cuidar dos rios e economizar a água no dia a dia.</li>
-                <li><strong>Logística Reversa:</strong> Descarte correto de embalagens e defensivos agrícolas.</li>
-                <li><strong>Educação Ambiental:</strong> Compartilhar o conhecimento para que mais pessoas valorizem o meio rural.</li>
+            <h2>Atitudes que Transformam o Futuro</h2>
+            <p>A sustentabilidade real exige a cooperação e a mudança de hábitos em ambos os ecossistemas: o rural e o urbano.</p>
+            
+            <ul style="padding-left: 20px;">
+                <li style="margin-bottom: 15px;"><strong>Consumo Consciente:</strong> Evite o desperdício severo de comida comprando de maneira planejada e optando por adquirir insumos de produtores locais e feiras familiares.</li>
+                <li style="margin-bottom: 15px;"><strong>Logística Reversa:</strong> Encaminhamento responsável de embalagens e resíduos químicos para que voltem às indústrias, impedindo a degradação dos lençóis freáticos.</li>
+                <li style="margin-bottom: 15px;"><strong>Proteção dos Rios Urbanos:</strong> Evitar o descarte de óleos domésticos e resíduos industriais nas redes de esgoto, mantendo as bacias hidrográficas que correm para o campo limpas.</li>
             </ul>
+        </section>
+
+        <section id="quiz-educativo" class="bg-light">
+            <div class="container">
+                <h2>Espaço Educativo do Agrinho</h2>
+                <p>O que você aprendeu hoje sobre o campo e a sustentabilidade? Teste o seu conhecimento agora!</p>
+                
+                <div class="card-quiz" style="padding: 25px; border-radius: 8px; background: #ffffff; border: 1px solid #ddd; margin-top: 25px;">
+                    <h4><strong>Pergunta:</strong> Qual tecnologia do campo ajuda diretamente a economizar recursos hídricos (água)?</h4>
+                    <br>
+                    <input type="radio" id="q1" name="quiz" value="errado">
+                    <label for="q1"> Utilizar tratores maiores e mais pesados.</label><br><br>
+                    
+                    <input type="radio" id="q2" name="quiz" value="certo">
+                    <label for="q2"> Sensores de umidade que ativam a irrigação apenas quando necessário.</label><br><br>
+                    
+                    <input type="radio" id="q3" name="quiz" value="errado2">
+                    <label for="q3"> Aumentar o uso diário de fertilizantes tradicionais.</label><br><br>
+                    
+                    <button onclick="verificarQuiz()">Enviar Resposta</button>
+                    <p id="resultado-quiz" style="margin-top: 20px; font-weight: bold; font-size: 1.1rem;"></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="container">
+            <h2>Participe desta Colheita!</h2>
+            <p>Se você deseja levar materiais pedagógicos do Agrinho para sua comunidade escolar ou saber mais informações sobre os concursos vigentes, entre em contato.</p>
+            <div>
+                <p>📧 Email informativo: <strong>contato@projetoagrinho.org.br</strong></p>
+                <p>📍 Apoio Institucional: <strong>Sistema FAEP / SENAR</strong></p>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Projeto Agrinho - Desenvolvido com foco no Bem do Campo.</p>
-        <p>Educação que transforma a relação entre o campo e a cidade.</p>
+        <p>&copy; 2026 Projeto Agrinho - Desenvolvido com foco no Bem do Campo e na Educação para o Futuro.</p>
+        <p>Promovendo a harmonia essencial entre a vida rural e o desenvolvimento urbano.</p>
     </footer>
 
     <script>
+        // Função para alteração de fonte adaptável
         function alterarFonte(direcao) {
             const html = document.documentElement;
             let tamanhoAtual = parseFloat(window.getComputedStyle(html).fontSize);
@@ -101,8 +334,29 @@
             }
         }
 
+        // Função de Alto Contraste Completa e Definitiva
         function toggleContraste() {
-            document.body.classList.toggle('alto-contraste');
+            document.documentElement.classList.toggle('alto-contraste');
+        }
+
+        // Lógica do Quiz Educativo
+        function verificarQuiz() {
+            const resposta = document.querySelector('input[name="quiz"]:checked');
+            const resultado = document.getElementById('resultado-quiz');
+            
+            if (!resposta) {
+                resultado.innerHTML = "⚠️ Por favor, selecione uma das opções primeiro!";
+                resultado.style.color = "#ff9800";
+                return;
+            }
+            
+            if (resposta.value === "certo") {
+                resultado.innerHTML = "🌱 Resposta correta! Os sensores evitam o desperdício mantendo a planta saudável com a quantidade ideal de água.";
+                resultado.style.color = "#2e7d32";
+            } else {
+                resultado.innerHTML = "❌ Ah, não foi dessa vez! Lembre-se de que a tecnologia de precisão foca em economizar recursos naturais. Tente novamente!";
+                resultado.style.color = "#d32f2f";
+            }
         }
     </script>
 </body>
